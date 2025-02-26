@@ -1,0 +1,30 @@
+# Profitchain
+
+- [ ] Authentication
+  - [ ] Login
+  - [ ] Registration
+  - [ ] Referral on Registration
+  - [ ] Views for Referrals
+  - [ ] Welcome Bonus (Flat or Percentage)
+- [ ] Dashboard Page
+- [ ] Sell USD (Dealers only)
+  - [ ] Create Sell Advert
+  - [ ] View Orders and Details
+  - [ ] Manage Orders
+- [ ] Buy USD
+  - [ ] View Buy Orders
+  - [ ] Manage Individual Order
+- [ ] Withdrawal to Naira (Create and View)
+- [ ] Arbitrage Market Page
+  - [ ] View available markets
+  - [ ] Create Trade
+  - [ ] History List (All)
+  - [ ] My Active Trades (Pending)
+  - [ ] View Individual trade
+- [ ] Referral Page
+- [ ] Dispute
+- [ ] Transfer USD (Create and History)
+- [ ] Buy USDT Page (Create and History)
+- [ ] Payout Page (Withdrawal proofs)
+- [ ] Member's Rewards Page (Weekly Leaderboard)
+- [ ] Verify Identity
