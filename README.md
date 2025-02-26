@@ -25,6 +25,14 @@
 - [ ] Dispute
 - [ ] Transfer USD (Create and History)
 - [ ] Buy USDT Page (Create and History)
-- [ ] Payout Page (Withdrawal proofs)
 - [ ] Member's Rewards Page (Weekly Leaderboard)
 - [ ] Verify Identity
+- [ ] Static Pages
+  - [ ] Landing page
+  - [ ] FAQ
+  - [ ] Contact Us
+  - [ ] Payout Page (Withdrawal proofs)
+  - [ ] Apply to become a dealer
+  - [ ] Community Links
+  - [ ] Privacy
+  - [ ] Terms
