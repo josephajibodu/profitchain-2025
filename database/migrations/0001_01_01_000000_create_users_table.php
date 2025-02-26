@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('whatsapp_number');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('bank_name');
-            $table->string('bank_account_name');
-            $table->string('bank_account_number');
+            $table->string('bank_name')->nullable();
+            $table->string('bank_account_name')->nullable();
+            $table->string('bank_account_number')->nullable();
             $table->string('kyc_status')->nullable();
             $table->string('account_status')->default(AccountStatus::Active);
             $table->string('referral_code')->index();

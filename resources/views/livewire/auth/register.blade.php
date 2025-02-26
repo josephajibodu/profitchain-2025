@@ -12,9 +12,10 @@ new #[Layout('components.layouts.auth')] class extends Component {
     public string $username = '';
     public string $first_name = '';
     public string $last_name = '';
+    public string $email = '';
     public string $phone_number = '';
     public string $whatsapp_number = '';
-    public string $email = '';
+    public string $referral_code = '';
     public string $password = '';
     public string $password_confirmation = '';
 
@@ -27,9 +28,10 @@ new #[Layout('components.layouts.auth')] class extends Component {
             'username' => ['required', 'string', 'max:255', 'unique:' . User::class],
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'phone_number' => ['required', 'string', 'max:15'],
-            'whatsapp_number' => ['nullable', 'string', 'max:15'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'phone_number' => ['required', 'string', 'max:20'],
+            'whatsapp_number' => ['nullable', 'string', 'max:20'],
+            'referral_code' => ['nullable', 'string', 'max:50'],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -71,6 +73,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
                     type="text"
                     name="first_name"
                     required
+                    autofocus
                     autocomplete="given-name"
                     placeholder="First name"
             />
@@ -121,9 +124,19 @@ new #[Layout('components.layouts.auth')] class extends Component {
                     type="text"
                     name="whatsapp_number"
                     autocomplete="tel"
-                    placeholder="WhatsApp number (optional)"
+                    placeholder="WhatsApp number"
             />
         </div>
+
+        <!-- Referral Code -->
+        <flux:input
+                wire:model="referral_code"
+                id="referral_code"
+                label="{{ __('Referral Code') }}"
+                type="text"
+                name="referral_code"
+                placeholder="Enter referral code (optional)"
+        />
 
         <!-- Password -->
         <flux:input
