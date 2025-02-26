@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('kyc_status')->nullable();
             $table->string('account_status')->default(AccountStatus::Active);
             $table->string('referral_code')->index();
+            $table->unsignedBigInteger('referral_link_view_count')->default(0);
             $table->text('ban_reason')->nullable();
             $table->string('password');
             $table->rememberToken();
