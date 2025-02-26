@@ -9,7 +9,11 @@ use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
 new #[Layout('components.layouts.auth')] class extends Component {
-    public string $name = '';
+    public string $username = '';
+    public string $first_name = '';
+    public string $last_name = '';
+    public string $phone_number = '';
+    public string $whatsapp_number = '';
     public string $email = '';
     public string $password = '';
     public string $password_confirmation = '';
@@ -20,7 +24,11 @@ new #[Layout('components.layouts.auth')] class extends Component {
     public function register(): void
     {
         $validated = $this->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255', 'unique:' . User::class],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'phone_number' => ['required', 'string', 'max:15'],
+            'whatsapp_number' => ['nullable', 'string', 'max:15'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -42,53 +50,103 @@ new #[Layout('components.layouts.auth')] class extends Component {
     <x-auth-session-status class="text-center" :status="session('status')" />
 
     <form wire:submit="register" class="flex flex-col gap-6">
-        <!-- Name -->
+        <!-- Username -->
         <flux:input
-            wire:model="name"
-            id="name"
-            label="{{ __('Name') }}"
-            type="text"
-            name="name"
-            required
-            autofocus
-            autocomplete="name"
-            placeholder="Full name"
+                wire:model="username"
+                id="username"
+                label="{{ __('Username') }}"
+                type="text"
+                name="username"
+                required
+                autocomplete="username"
+                placeholder="Unique username"
         />
+
+        <div class="grid grid-cols-2 gap-6">
+            <!-- First Name -->
+            <flux:input
+                    wire:model="first_name"
+                    id="first_name"
+                    label="{{ __('First Name') }}"
+                    type="text"
+                    name="first_name"
+                    required
+                    autocomplete="given-name"
+                    placeholder="First name"
+            />
+
+            <!-- Last Name -->
+            <flux:input
+                    wire:model="last_name"
+                    id="last_name"
+                    label="{{ __('Last Name') }}"
+                    type="text"
+                    name="last_name"
+                    required
+                    autocomplete="family-name"
+                    placeholder="Last name"
+            />
+        </div>
 
         <!-- Email Address -->
         <flux:input
-            wire:model="email"
-            id="email"
-            label="{{ __('Email address') }}"
-            type="email"
-            name="email"
-            required
-            autocomplete="email"
-            placeholder="email@example.com"
+                wire:model="email"
+                id="email"
+                label="{{ __('Email address') }}"
+                type="email"
+                name="email"
+                required
+                autocomplete="email"
+                placeholder="email@example.com"
         />
+
+        <div class="grid grid-cols-2 gap-6">
+            <!-- Phone Number -->
+            <flux:input
+                    wire:model="phone_number"
+                    id="phone_number"
+                    label="{{ __('Phone Number') }}"
+                    type="text"
+                    name="phone_number"
+                    required
+                    autocomplete="tel"
+                    placeholder="Phone number"
+            />
+
+            <!-- WhatsApp Number -->
+            <flux:input
+                    wire:model="whatsapp_number"
+                    id="whatsapp_number"
+                    label="{{ __('WhatsApp Number') }}"
+                    type="text"
+                    name="whatsapp_number"
+                    autocomplete="tel"
+                    placeholder="WhatsApp number (optional)"
+            />
+        </div>
 
         <!-- Password -->
         <flux:input
-            wire:model="password"
-            id="password"
-            label="{{ __('Password') }}"
-            type="password"
-            name="password"
-            required
-            autocomplete="new-password"
-            placeholder="Password"
+                wire:model="password"
+                id="password"
+                label="{{ __('Password') }}"
+                type="password"
+                name="password"
+                required
+                autocomplete="new-password"
+                placeholder="Password"
         />
 
         <!-- Confirm Password -->
         <flux:input
-            wire:model="password_confirmation"
-            id="password_confirmation"
-            label="{{ __('Confirm password') }}"
-            type="password"
-            name="password_confirmation"
-            required
-            autocomplete="new-password"
-            placeholder="Confirm password"
+                wire:model="password_confirmation"
+                id="password_confirmation"
+                label="{{ __('Confirm password') }}"
+                type="password"
+                name="password_confirmation"
+                required
+                autocomplete="new-password"
+                placeholder="Confirm password"
         />
 
         <div class="flex items-center justify-end">
