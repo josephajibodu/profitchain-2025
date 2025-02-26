@@ -1,11 +1,12 @@
 # Profitchain
 
 - [ ] Authentication
-  - [ ] Login
-  - [ ] Registration
+  - [x] Login
+  - [x] Email Verification
+  - [x] Registration
   - [ ] Referral on Registration
-  - [ ] Views for Referrals
   - [ ] Welcome Bonus (Flat or Percentage)
+  - [ ] Views for Referrals DB implementation
 - [ ] Dashboard Page
 - [ ] Sell USD (Dealers only)
   - [ ] Create Sell Advert
@@ -22,6 +23,7 @@
   - [ ] My Active Trades (Pending)
   - [ ] View Individual trade
 - [ ] Referral Page
+  - [ ] Views for Referrals
 - [ ] Dispute
 - [ ] Transfer USD (Create and History)
 - [ ] Buy USDT Page (Create and History)
